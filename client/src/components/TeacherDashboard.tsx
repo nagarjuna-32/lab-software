@@ -350,7 +350,14 @@ export const TeacherDashboard: React.FC<Props> = ({ teacher, onLogout }) => {
                     <option value="python">Python 3</option>
                     <option value="c">C</option>
                     <option value="cpp">C++</option>
-                    <option value="java">Java</option>
+                    <option value="java">Java 17</option>
+                    <option value="javascript">JavaScript (Node.js)</option>
+                    <option value="typescript">TypeScript</option>
+                    <option value="go">Go (Golang)</option>
+                    <option value="rust">Rust</option>
+                    <option value="php">PHP</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="csharp">C# (.NET)</option>
                   </select>
                 </div>
 

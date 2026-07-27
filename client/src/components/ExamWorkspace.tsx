@@ -219,6 +219,13 @@ export const ExamWorkspace: React.FC<Props> = ({
               <option value="c">C (GCC)</option>
               <option value="cpp">C++ (G++)</option>
               <option value="java">Java 17</option>
+              <option value="javascript">JavaScript (Node.js)</option>
+              <option value="typescript">TypeScript</option>
+              <option value="go">Go (Golang)</option>
+              <option value="rust">Rust</option>
+              <option value="php">PHP</option>
+              <option value="ruby">Ruby</option>
+              <option value="csharp">C# (.NET)</option>
             </select>
           </div>
         </div>
@@ -339,7 +346,13 @@ export const ExamWorkspace: React.FC<Props> = ({
           <div style={{ flex: 1, position: 'relative' }}>
             <Editor
               height="100%"
-              language={language === 'c' || language === 'cpp' ? 'cpp' : language}
+              language={
+                language === 'c' || language === 'cpp' ? 'cpp' :
+                language === 'js' ? 'javascript' :
+                language === 'ts' ? 'typescript' :
+                language === 'rs' ? 'rust' :
+                language === 'cs' ? 'csharp' : language
+              }
               value={code}
               onChange={(value) => setCode(value || '')}
               theme="vs-dark"
