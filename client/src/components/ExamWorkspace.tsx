@@ -21,17 +21,10 @@ export const ExamWorkspace: React.FC<Props> = ({
   durationMinutes,
   onFinished
 }) => {
-  const defaultTemplates: Record<string, string> = {
-    python: `# Python 3 - CodeLock Solution\nimport sys\n\ndef main():\n    lines = sys.stdin.read().splitlines()\n    if not lines:\n        return\n    # Write your solution logic here\n    # print(result)\n\nif __name__ == '__main__':\n    main()\n`,
-    c: `// C - CodeLock Solution\n#include <stdio.init>\n#include <stdio.h>\n\nint main() {\n    // Write your C solution here\n    return 0;\n}\n`,
-    cpp: `// C++ - CodeLock Solution\n#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your C++ solution here\n    return 0;\n}\n`,
-    java: `// Java - CodeLock Solution\nimport java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        // Write your Java solution here\n    }\n}\n`
-  };
-
   const [language, setLanguage] = useState<string>(question.language || 'python');
   const [code, setCode] = useState<string>(() => {
     const saved = localStorage.getItem(`codelock_save_${student.id}_${question.id}`);
-    return saved || defaultTemplates[question.language || 'python'] || defaultTemplates['python'];
+    return saved || '';
   });
 
   // Consoles & Outputs
@@ -209,9 +202,7 @@ export const ExamWorkspace: React.FC<Props> = ({
             <select
               value={language}
               onChange={(e) => {
-                const lang = e.target.value;
-                setLanguage(lang);
-                setCode(defaultTemplates[lang] || '');
+                setLanguage(e.target.value);
               }}
               style={{
                 backgroundColor: 'rgba(15, 23, 42, 0.8)',
