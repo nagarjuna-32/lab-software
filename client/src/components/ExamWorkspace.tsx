@@ -250,6 +250,11 @@ export const ExamWorkspace: React.FC<Props> = ({
 
         {/* Right Info & Auto Save Badge */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem', color: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', padding: '4px 10px', borderRadius: '12px', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
+            <span className="pulse-dot pulse-dot-green" />
+            <span>Security Server Live</span>
+          </div>
+
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
             <Save size={14} color="#10b981" />
             <span>{lastSaved}</span>
